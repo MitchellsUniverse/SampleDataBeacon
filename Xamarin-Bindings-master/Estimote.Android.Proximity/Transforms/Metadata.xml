@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <remove-node path="//class[@name='BuildConfig']" />
+
+    <attr path="/api/package[starts-with(@name, 'com.estimote.proximity_sdk')]" name="managedName">Estimote.Android.Proximity</attr>
+    <attr path="/api/package[starts-with(@name, 'com.estimote.proximity_sdk.internals')]" name="managedName">Estimote.Android.Proximity.Internals</attr>
+
+    <remove-node path="/api/package[starts-with(@name, 'com.estimote') and not(
+            starts-with(@name, 'com.estimote.proximity_sdk.api') 
+            or
+            @name='com.estimote.proximity_sdk.internals.proximity'
+    )]" />
+    <remove-node path="/api/package[@name='com.estimote.proximity_sdk.internals.proximity']//class[not(@name='EstimoteProximityZoneContext')]" />
+</metadata>
